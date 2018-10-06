@@ -4,8 +4,7 @@ logging.basicConfig(
     level=logging.DEBUG
     )
 
-def sum_between_two_number( x, y ) : 
-    # Create a workbook and add a worksheet.
+def sum_between_two_number( x, y ) :  
     import xlsxwriter
     workbook = xlsxwriter.Workbook('sum_data.xlsx')
     worksheet = workbook.add_worksheet()
@@ -19,18 +18,31 @@ def sum_between_two_number( x, y ) :
     worksheet.write(row, 1, "sum" )
     row += 1
 
+    x_array = []
+    y_array = []
     for x in range( x, y + 1 ):
         sum = sum + x 
+        x_array.append( x )
+        y_array.append( sum )
         worksheet.write(row, 0, x )
         worksheet.write(row, 1, sum )
         row += 1
         logging.debug( " current x = %s, sum = %s" % ( x, sum ) )
     pass
 
+    import matplotlib.pyplot as plt
+    import matplotlib as mpl
+    import numpy as np
+    plt.plot(x_array, y_array)
+    plt.show()
+
     worksheet.write(row, 0, "sum" )
     worksheet.write(row, 1, sum ) 
-
     workbook.close()
+
+    import matplotlib.pyplot as plt
+    import matplotlib as mpl
+    import numpy as np
 
     return sum
 pass
