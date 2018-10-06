@@ -29,6 +29,7 @@ for item, cost in (expenses):
     worksheet.write(row, col,     item)
     worksheet.write(row, col + 1, cost)
     row += 1
+pass
 
 # Write a total using a formula.
 worksheet.write(row, 0, 'Total')
