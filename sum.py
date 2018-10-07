@@ -30,25 +30,44 @@ def sum_between_two_number( x, y ) :
         logging.debug( " current x = %s, sum = %s" % ( x, sum ) )
     pass
 
-    import matplotlib.pyplot as plt
-    import matplotlib as mpl
-    import numpy as np
-    plt.plot(x_array, y_array)
-    plt.show()
-
     worksheet.write(row, 0, "sum" )
     worksheet.write(row, 1, sum ) 
+
+    # Create a new chart object.
+    chart = workbook.add_chart({'type': 'line'})
+    # Add a series to the chart.
+    chart.add_series({
+        'categories': '=Sheet1!$A$2:$A$%s' % (row-1),
+        'values': '=Sheet1!$B$2:$B$%s' % (row-1) 
+    })
+    chart.add_series({'values': '=Sheet1!$A$2:$B$%s' % (row-1) }
+    )
+    # Insert the chart into the worksheet.
+    worksheet.insert_chart('D1', chart)
+
     workbook.close()
 
-    import matplotlib.pyplot as plt
-    import matplotlib as mpl
-    import numpy as np
+    show_chart = False 
+    if show_chart : 
+        import matplotlib.pyplot as plt
+        import matplotlib as mpl
+        import numpy as np
+
+        plt.plot(x_array, y_array)
+        plt.show()
+    pass
 
     return sum
 pass
 
-x = int(input("Enter a number: "))
-y = int(input("Enter a number: "))
+x = 1
+y = 100
+
+use_input = False 
+if use_input : 
+    x = int(input("Enter a number: "))
+    y = int(input("Enter a number: "))
+pass
 sum = sum_between_two_number( x, y )
 
-print ( sum )
+print ( "sum = %s" % sum )
