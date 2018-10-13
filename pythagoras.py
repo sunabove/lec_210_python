@@ -32,6 +32,7 @@ pass
 p = Pythagoras()
 p.find_numbers_numerical()
 
-#Pythagoras.find_numbers_analytic( p )
+Pythagoras.find_numbers_analytic( p )
+p.find_numbers_analytic()
 
 #--
