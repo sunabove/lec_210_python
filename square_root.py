@@ -5,8 +5,7 @@ class SquareRoot :
         y = e 
 
         while abs( y*y - x ) > e :
-            y += e
-            print( "y = %s" % y ) 
+            y += e 
         pass
         
         return y
