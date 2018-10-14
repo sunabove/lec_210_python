@@ -17,9 +17,10 @@ class Pythagoras :
 
     def find_numbers_numerical( self ):
         print( "find_numbers_numerical" )
-        for x in range( 1, 101 ) : 
-            for y in range( x + 1, 101 ) :  
-                for z in range( y , 100 ) :
+        n = 1000
+        for x in range( 1, n ) : 
+            for y in range( x + 1, n ) :  
+                for z in range( y , n ) :
                     if x*x + y*y == z*z : 
                         print( "x = %s, y= %s, z= %s" %(x, y, z) )
                     pass
@@ -30,9 +31,6 @@ class Pythagoras :
 pass
 
 p = Pythagoras()
-p.find_numbers_numerical()
-
-Pythagoras.find_numbers_analytic( p )
-p.find_numbers_analytic()
+p.find_numbers_numerical() 
 
 #--
