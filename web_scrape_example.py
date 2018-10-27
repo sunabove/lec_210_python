@@ -9,9 +9,7 @@ class WebScrape :
         pass
     pass
 
-    def doScrape(self) :
-        result = None 
-
+    def doScrape(self) : 
         import xlsxwriter
         workbook = xlsxwriter.Workbook( "오늘의 증권시세.xlsx" )
         worksheet = workbook.add_worksheet()
@@ -40,39 +38,37 @@ class WebScrape :
         soup = BeautifulSoup( html_src, "html.parser" , from_encoding="euc-kr" )
 
         print( "title = %s" % soup.title ) 
-
         print( "title.string = %s" % soup.title.string )
-
-        table = soup.table
-        
+        table = soup.table        
         table_subs = table.find_all( "table" )
-
-        print( line )
-        print( "table_subs[0] = %s" % table_subs[0] ) 
-
-        print( line )
-        print( "table_subs[0] = %s" % table_subs[1] ) 
-
-        print( line )
+        print( line )         
         jisu = table_subs[ 1 ]
-
         trs = jisu.find_all( "tr" )
-        
-        tds = trs[ 1 ].find_all( "td" )
-        print( "%s = %s" % (tds[0].string, tds[1].string ) )
+        for tr in trs :
+            tds = tr.find_all( "td" )
+            col = 0 
+            for td in tds : 
+                print( "td = %s" % td.string )
+                worksheet.write(row, col, td.string )
+                col += 1
+            pass
+            row += 1
+        pass 
 
-        worksheet.write(row, 0, tds[0].string )
-        worksheet.write(row, 1, tds[1].string )
-
+        jisu = table_subs[ 4 ]
+        trs = jisu.find_all( "tr" )
+        for tr in trs :
+            tds = tr.find_all( "td" )
+            col = 0 
+            for td in tds : 
+                print( "td = %s" % td.string )
+                worksheet.write(row, col, td.string )
+                col += 1
+            pass
+            row += 1
+        pass 
         print( line )
-        tds = trs[ 2 ].find_all( "td" )
-        print( "%s = %s" % (tds[0].string, tds[1].string ) )
-
-        print( line )
-
-        workbook.close()
-
-        return result 
+        workbook.close() 
     pass
 
 pass

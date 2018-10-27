@@ -14,6 +14,7 @@ def sum_between_two_number( x, y ) :
     y = max( t, y ) 
     sum = 0
     row = 0 
+    
     worksheet.write(row, 0, "x" )
     worksheet.write(row, 1, "sum" )
     row += 1
@@ -24,8 +25,10 @@ def sum_between_two_number( x, y ) :
         sum = sum + x 
         x_array.append( x )
         y_array.append( sum )
+
         worksheet.write(row, 0, x )
         worksheet.write(row, 1, sum )
+
         row += 1
         logging.debug( " current x = %s, sum = %s" % ( x, sum ) )
     pass
