@@ -5,10 +5,10 @@ print( "Hello..." )
 from pptx import Presentation
 from pptx.util import Inches
 
+# 이미지 가져와서 저장하기
 import shutil
 import requests
 
-# 이미지 가져와서 저장하기
 my_url = 'https://www.washingtonian.com/wp-content/uploads/2017/06/6-30-17-goat-yoga-congressional-cemetery-1-994x559.jpg'
 response = requests.get(my_url, stream=True)
 with open( 'my_image.png', 'wb') as file:
