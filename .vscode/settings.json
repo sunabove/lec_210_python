@@ -1,4 +1,4 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.pythonPath": "C:\\Program Files\\QGIS 3.2\\apps\\Python36\\python.exe"
+    "python.pythonPath": "C:\\Program Files\\QGIS 3.4\\bin\\python3.exe"
 }
