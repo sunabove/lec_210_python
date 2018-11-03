@@ -89,8 +89,22 @@ class Report :
             p = tf.add_paragraph()
             p.text = li.getText().strip()
             p.level = 1 
-            p.font.size = Pt(14)
+            p.font.size = Pt(10)
         pass 
+
+        # 네번째 역사 PPT 슬라이드 추가 
+        bullet_slide_layout = prs.slide_layouts[1]
+
+        slide = prs.slides.add_slide(bullet_slide_layout)
+        shapes = slide.shapes
+
+        div = html.find( "div", { "class": "mw-parser-output" } )
+
+        title_shape = shapes.title
+        body_shape = shapes.placeholders[1]
+        title_shape.text = "역사"
+
+        tf = body_shape.text_frame 
 
         # PPT 저장 
         prs.save( "%s.pptx" % ppt_file_name ) 
