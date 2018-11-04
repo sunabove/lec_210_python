@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import logging
+
 logging.basicConfig( format='%(levelname)-8s %(asctime)s %(filename)s %(lineno)d %(message)s', level=logging.DEBUG )
 
 class Report :
@@ -9,12 +10,12 @@ class Report :
         pass
     pass
 
-    def makeReport(self) :  
+    def makeReport(self) :
 
         line = "\n" + "#"*80 + "\n"
 
         # import libraries
-        from bs4 import BeautifulSoup
+        from bs4 import BeautifulSoup 
 
         # specify the url
         html_url = "https://ko.wikipedia.org/wiki/%EA%B3%A0%EB%A0%A4%EC%9D%B8"
