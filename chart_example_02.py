@@ -2,16 +2,22 @@
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
-mu, sigma = 100, 15
-x = mu + sigma*np.random.randn(10000)
-# the histogram of the data
-n, bins, patches = plt.hist(x, 50, normed=1, facecolor='green',alpha=0.75)
-# add a 'best fit' line
-y = mlab.normpdf( bins, mu, sigma)
-l = plt.plot(bins, y, 'r--', linewidth=1)
-plt.xlabel('Smarts')
-plt.ylabel('Probability')
-plt.title(r'$\mathrm{Histogram\ of\ IQ:}\ \mu=100,\ \sigma=15$')
-plt.axis([40, 160, 0, 0.03])
+
+def y( x ) :
+    return x*x - 3*x -100
+pass
+
+x_array = np.linspace( -20, 20, 100 )
+y_array = []
+for x in x_array :
+    yv = y( x )
+    y_array.append( yv )
+pass
+
+plt.plot(x_array, y_array, 'r--', linewidth=1 )
+ 
+plt.xlabel( 'x' )
+plt.ylabel( 'y' )
+plt.title( "y=x*x - 3x -100") 
 plt.grid(True)
 plt.show()
