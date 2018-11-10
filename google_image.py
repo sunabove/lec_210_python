@@ -68,7 +68,8 @@ pass
 
 if __name__ == '__main__' :   
     googleImage = GoogleImage()
-    googleImage.saveImage( "독도" )
-    googleImage.saveImage( "대한민국" )
-    googleImage.saveImage( "고려인" )
+    key_word_list = [ "독도", "대한민국", "고려인" ]
+    for key_word in key_word_list : 
+        googleImage.saveImage( key_word )
+    pass
 pass
