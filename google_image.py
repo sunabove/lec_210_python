@@ -8,9 +8,8 @@ class GoogleImage :
         pass
     pass
 
-    def saveImage(self) :
+    def saveImage(self, key_word ) :
         import urllib.parse
-        key_word = "대한민국" 
         key_url = urllib.parse.urlencode( { "q" : key_word } )
         # import libraries
         from bs4 import BeautifulSoup 
@@ -69,5 +68,7 @@ pass
 
 if __name__ == '__main__' :   
     googleImage = GoogleImage()
-    googleImage.saveImage()
+    googleImage.saveImage( "독도" )
+    googleImage.saveImage( "대한민국" )
+    googleImage.saveImage( "고려인" )
 pass
