@@ -13,11 +13,11 @@ class GoogleImage :
 
         import urllib.parse
         key_word = "대한민국" 
-        key_url = urllib.parse.urlencode( { "q" : key_word }
+        key_url = urllib.parse.urlencode( { "q" : key_word } )
         # import libraries
         from bs4 import BeautifulSoup 
         # specify the url
-        html_url = "https://www.google.com/search?tbm=isch&%s" % key_url ) 
+        html_url = "https://www.google.com/search?tbm=isch&%s" % key_url 
 
         # query the website and return the html to the variable ‘page’
         logging.info( "Getting a html data from %s" % html_url )
@@ -44,7 +44,7 @@ class GoogleImage :
         # 이미지 저장 폴더 생성
         import os
         desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        image_path = desktop_path + "\\googoe_image"  
+        image_path = desktop_path + "\\googoe_image" + "\\" + key_word  
 
         # 폴더가 없으면 생성함.
         if not os.path.exists( image_path ):
