@@ -11,10 +11,13 @@ class GoogleImage :
     def saveImage(self) :
         line = "\n" + "#"*80 + "\n"
 
+        import urllib.parse
+        key_word = "대한민국" 
+        key_url = urllib.parse.urlencode( { "q" : key_word }
         # import libraries
         from bs4 import BeautifulSoup 
         # specify the url
-        html_url = "https://www.google.com/search?tbm=isch&q=%EB%8F%85%EB%8F%84"
+        html_url = "https://www.google.com/search?tbm=isch&%s" % key_url ) 
 
         # query the website and return the html to the variable ‘page’
         logging.info( "Getting a html data from %s" % html_url )
