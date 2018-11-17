@@ -16,6 +16,8 @@ pass
 
 plt.plot(x_array, y_array, 'r--', linewidth=1 )
  
+# 추가 
+
 plt.xlabel( 'x' )
 plt.ylabel( 'y' )
 plt.title( "y=x*x - 3x -100") 
