@@ -107,3 +107,4 @@ test*.py
 *.xlsx
 *.pptx
 *.png
+.vscode/settings.json
