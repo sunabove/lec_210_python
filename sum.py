@@ -71,6 +71,7 @@ if use_input :
     x = int(input("Enter a number: "))
     y = int(input("Enter a number: "))
 pass
+
 sum = sum_between_two_number( x, y )
 
 print ( "sum = %s" % sum )

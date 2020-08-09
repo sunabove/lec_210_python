@@ -108,3 +108,5 @@ test*.py
 *.pptx
 *.png
 .vscode/settings.json
+/.idea
+/.vscode
