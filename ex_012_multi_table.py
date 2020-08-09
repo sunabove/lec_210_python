@@ -16,7 +16,6 @@ box = box.strip()
 lines = box.split( "\n" )
 
 print()
-print( "Hello═...." )
 
 console_width = int( 119/3 )*3
 cell_width = int(console_width / 3)
@@ -69,6 +68,10 @@ pass
 def content_line(*txt) :
     txt_new = [""]*4
 
+    if txt and len( txt ) > 0 and type( txt[0] ) == list :
+        txt = txt[ 0 ]
+    pass
+
     for i, t in enumerate(txt):
         txt_new[i] = t
         if i == 3 :
@@ -94,15 +97,21 @@ pass
 
 print()
 print( hor_line() )
+print()
 print( empty_line( "구구단표") )
 print( hor_line() )
-print( top_line() )
-print( content_line( "2단", "3단" , "4단", "5단") )
-print( middle_line() )
-print( content_line( "aA", "bB" , "cC",  "dD") )
-print( bottom_line() )
+
+for page in range( 2 ) :
+    print( top_line() )
+    col = [ 2 + page*4, 6 + page*4 ]
+    print( content_line( [ f"{t}단" for t in range( col[0], col[1] ) ] ) )
+    print( middle_line() )
+    for r in range( 0, 9 ) :
+        t = [ f"{c}x{r+1} = {c*(r+1):2d}" for c in range( col[0], col[1] ) ]
+        print( content_line( t ) )
+    pass
+    print(bottom_line())
+pass
 
 print()
-print( "Good bye!" )
-
 
